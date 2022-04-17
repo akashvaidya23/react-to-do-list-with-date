@@ -1,0 +1,17 @@
+.listContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.btnSpan {
+    margin-left: 10px;
+}
+
+.itemContainer {
+    margin: 10px 0px;
+}
+
+.itemDone {
+    color: green;
+    font-weight: 900;
+}
