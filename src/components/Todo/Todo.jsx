@@ -11,7 +11,6 @@ const Todo = () => {
   const [listDate, setListDate] = useState([]);
 
   useEffect(() => {
-    console.log("component did mount");
     const items = localStorage.getItem("todoList");
     if (items) {
       setlistName(JSON.parse(items));
@@ -19,21 +18,8 @@ const Todo = () => {
   }, []);
 
   useEffect(() => {
-    console.log("component did update");
     localStorage.setItem("todoList", JSON.stringify(listName));
   }, [listName]);
-
-  useEffect(() => {
-    return () => {
-      console.log("component did unmount");
-    };
-  }, []);
-
-  useEffect(() => {
-    console.log("After rendering");
-  });
-
-  console.log("rendering todo list");
 
   const addToList = () => {
     if (inputText.trim()) {
@@ -127,15 +113,6 @@ const Todo = () => {
             inputKeychange={inputKeychange}
           />
         </div>
-        <div>
-          <Input
-            inputChangehandler={inputChangeHandler}
-            placeholder="Enter Task due date"
-            value={inputText}
-            type="date"
-            inputKeychange={inputKeychange}
-          />
-        </div>
       </div>
       <div>
         <Button btnText="Add to list" btnClickHandler={addToList} />
@@ -143,7 +120,6 @@ const Todo = () => {
       <div>
         <Display
           list={listName}
-          date={listDate}
           isDoneHandler={isDoneHandler}
           deleteHandler={isDeleteHandler}
           swapItems={swapItem}
